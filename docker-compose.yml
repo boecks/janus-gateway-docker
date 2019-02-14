@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+ 
+  janus:
+    container_name: janus
+    restart: always
+    build: janus
+    volumes:
+      - ./janus/conf/:/opt/janus/etc/janus/ #used to map the config files outside the container for easy configuration of Janus and its plugins. Comment to not map it outside.
+      - ./janus/janus.log:/var/log/janus.log #used to map the Janus logfile outside the container for easy viewing. Comment to not map it outside.
+      #- ./janus/minimalStreamingDemoHTML/:/opt/janus/share/janus/demos/ #by enabling this, the default Janus demo page is exchanged with a more simplistic one for streaming only.
+    network_mode: "host" #it is necessary to run Janus in host mode because of the random UDP port assignments for the mountpoints.
+    
+    #Janus will bind to ports 80, 7088, 7089, 7188, 7189, 8088, 8089, 8188 and 8189 by default. (Apache demo page, http(s) Admin API, http(s) Janus API, ws(s) Janus Websocket API)
+    #The ports can be changed by changing them in the janus.jcfg and the according transport.jcfg
+    #Don't forget to expose/not-expose the ports you changed in the Dockerfile and/or in the docker-compose.yml

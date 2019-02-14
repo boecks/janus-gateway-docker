@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Janus WebRTC Server: Streaming Demo</title>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.0.3/adapter.min.js"></script>
+	<script type="text/javascript" src="janus.js"></script>
+	<script type="text/javascript" src="janusStreamer.js"></script>
+
+	<script>
+		document.body.requestFullscreen();
+	</script>
+
+</head>
+
+<body>
+
+	<script>
+		openStream("1", "camVorderseite");
+		openStream("2", "camGarage");
+	</script>
+
+	<!--
+	<div style="float:left;overflow:auto;" id="camVorderseite" width="600">
+		<header>Stream 1</header>
+	</div>
+	<div style="float:left;overflow:auto" id="camGarage" width="400">
+		<header>Stream 2</header>
+	</div>
+	-->
+
+	<video id="camVorderseite" width="400" height="auto" autoplay muted>
+		<!--Funktioniert in Chrome und Firefox unter Windows und in Chrome unter Android-->
+	</video>
+
+	<video id="camGarage" width="400" height="auto" autoplay muted>
+
+	</video>
+</body>
+
+</html>
