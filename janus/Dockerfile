@@ -29,7 +29,8 @@ RUN ./janus.sh
 COPY conf/*.jcfg /opt/janus/etc/janus/
 
 # Declare the ports we use
-EXPOSE 80 7088 7089 7188 7189 8088 8089 8188 8189
+#EXPOSE 10080 7088 7089 7188 7189 8088 8089 8188 8189
+EXPOSE 10080 7088 8088 8188
 
 # Define the default start-up command
 CMD ./startup.sh
