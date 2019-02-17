@@ -9,7 +9,7 @@ Base OS is Ubuntu 16.04 and Janus will be pulled from the github repo during bui
 Current supported Janus version is: 0.6.2
 
 
-A demo webserver will be accessible on port 10080.
+A demo webserver (Apache) is accessible on port 10080.
 
 The admin API is running on port 7088.
 
