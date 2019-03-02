@@ -1,13 +1,10 @@
 function openStream(paramStreamId,paramContainingTagId){
-	var server = 'http://192.168.1.175:8088/janus';
+	var server = 'http://<ip-of-janus-server>:8088/janus'; //you could also use the Janus Websocket or whatever transport you have enabled
 	var selectedStream = paramStreamId;
-	var containingTagId = paramContainingTagId;
-	//var videoTagId = paramContainingTagId+'_stream_'+paramStreamId;
 	var videoTagId = paramContainingTagId;
 	var janus = null;
 	var streaming = null;
 	var opaqueId = "janusStreamer-"+Janus.randomString(12);
-
 
 	Janus.init({debug: "all", callback: function() {
 			if(!Janus.isWebrtcSupported()) {
@@ -63,22 +60,7 @@ function openStream(paramStreamId,paramContainingTagId){
 											return;
 									});
 									Janus.attachMediaStream($('#'+videoTagId).get(0), stream);
-
-
-									/*
-									if($('#'+videoTagId).length === 0) {
-										$('#'+containingTagId).append('<video id="'+videoTagId+'" style="visibility:hidden;" width="100%" height="auto" controls muted/>');
-										
-										$('#'+videoTagId).bind("playing", function () {
-											if(this.videoWidth)
-												$('#'+videoTagId).style.visibility='visible';											
-											var videoTracks = stream.getVideoTracks();
-											if(videoTracks === null || videoTracks === undefined || videoTracks.length === 0)
-												return;										
-										});
-									}
-									Janus.attachMediaStream($('#'+videoTagId).get(0), stream);
-									*/
+									
 								}
 							});
 					},
