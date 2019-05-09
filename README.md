@@ -14,3 +14,5 @@ A demo webserver (Apache) is accessible on port 10080.
 The admin API is running on port 7088.
 
 The Janus API is accessible via http on port 8088/janus and via websocket on port 8188.
+
+By default, only http and ws transport and the streaming plugin are enabled.
