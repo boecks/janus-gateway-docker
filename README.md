@@ -4,9 +4,9 @@ This repo can be used to run the Janus-Gateway from meetecho/janus-gateway in a 
 
 You can either deploy it using the dockerfile or the compose file.
 
-Base OS is Ubuntu 16.04 and Janus will be pulled from the github repo during build.
+Base OS is Ubuntu 20.04LTS and Janus will be pulled from the github repo during build.
 
-Current supported Janus version is: 0.7.0
+Current supported Janus version is: 0.10.8
 
 
 A demo webserver (Apache) is accessible on port 10080.
