@@ -1,9 +1,12 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 LABEL maintainer="Sascha Böck <alpenflizzer@gmail.com>"
 
 # Copy installation scripts in
 COPY *.sh ./
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/Vienna
 
 # Prepare the system
 RUN ./setup.sh
@@ -11,7 +14,7 @@ RUN ./setup.sh
 RUN ./dependencies.sh
 # Install extras
 RUN ./extras.sh
-# Install libsrtp 2.0.0 (To reduce risk of broken interoperability with future WebRTC versions)
+# Install libsrtp 2.3.0 (To reduce risk of broken interoperability with future WebRTC versions)
 RUN ./libsrtp.sh
 # Install usrsctp for data channel support
 RUN ./usrsctp.sh
